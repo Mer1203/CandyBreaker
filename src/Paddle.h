@@ -11,8 +11,11 @@ struct Paddle
 	int lives = 3;
 };
 
-Paddle player;
+extern Paddle player;
 
 const int SPEED = 300;
 
-const float DELTA_TIME = slGetDeltaTime();
+void PaddleInit();
+void PaddleUpdate(double time);
+void PaddleDraw();
+void CheckPaddleBorders();

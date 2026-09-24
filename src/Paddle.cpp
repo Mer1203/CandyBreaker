@@ -1,5 +1,8 @@
 #include "Paddle.h"
+#include "Menu.h"
 #include "sl.h"
+
+Paddle player;
 
 void PaddleDraw()
 {
@@ -15,14 +18,27 @@ void PaddleInit()
 	player.points = 3;
 }
 
-void PaddleUpdate()
+void PaddleUpdate(double time)
 {
 	if (slGetKey('D') || slGetKey('d'))
 	{
-		player.x += SPEED * DELTA_TIME;
+		player.x += SPEED * time;
 	}
 	else if (slGetKey('A') || slGetKey('a'))
 	{
-		player.x -= SPEED * DELTA_TIME;
+		player.x -= SPEED * time;
+	}
+}
+
+void CheckPaddleBorders()
+{
+	if (player.x < 0)
+	{
+		player.x = 0;
+	}
+
+	if (player.x > SCREEN_WIDTH)
+	{
+		player.x = SCREEN_WIDTH;
 	}
 }

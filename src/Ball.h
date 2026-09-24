@@ -9,4 +9,4 @@ struct Ball
 	double y = 120.0;
 };
 
-Ball ball;
+extern Ball ball;
