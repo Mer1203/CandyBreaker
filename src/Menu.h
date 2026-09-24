@@ -1,15 +1,15 @@
 #pragma once
 #include "sl.h"
 
-const double positionButtonX = 400.0;
+const double WIDTH_BUTTON = 210;
+const double HEIGHT_BUTTON = 60;
+
+const double POSITION_MENU_BUTTON_X = 400.0;
 
 const double positionButtonPlayY = 360.0;
 const double positionButtonRulesY = 280.0;
 const double positionButtonCreditsY = 200.0;
 const double positionButtonExitY = 120.0;
-
-const double widthButton = 210;
-const double heightButton = 60;
 
 const double positionGameNameX = 170;
 const double positionGameNameY = 90;
@@ -37,6 +37,9 @@ const double positionBackButtonY = 0;
 const double backButtonWidth = 90;
 const double backButtonHeight = 30;
 
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+
 enum class Screen
 {
 	None = 0,
@@ -48,7 +51,16 @@ enum class Screen
 };
 
 extern Screen currentScreen;
+
+struct Vector2
+{
+	double x = 0.0;
+	double y = 0.0;
+};
+
+extern Vector2 mousePosition;
+
 void Menu();
 
-int slGetMouseX();
-int slGetMouseY();
+bool CheckCollisionMouseButton(int buttonX, int buttonY, int buttonHeight, int buttonWidth);
+void ChangeButtonColorOnCollision(int buttonY);
