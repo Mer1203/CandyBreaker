@@ -1,6 +1,6 @@
 #pragma once
 
-const int BRICK_ROW_Y = 7;
+const int BRICK_ROW_Y = 9;
 const int BRICK_COLUMN_X = 8;
 
 const int BRICK_WIDHT = 80;
@@ -10,6 +10,7 @@ struct Brick
 {
 	double x = 90.0;
 	double y = 520.0;
+	bool active = true;
 };
 
 extern Brick bricks[BRICK_ROW_Y][BRICK_COLUMN_X];

@@ -1,4 +1,5 @@
 #include "Brick.h"
+#include "Ball.h"
 #include "sl.h"
 
 Brick bricks[BRICK_ROW_Y][BRICK_COLUMN_X] = { 0 };
@@ -12,7 +13,7 @@ void BrickInit()
 	{
 		auxX = 110;
 
-		for (int j = 0; j < BRICK_COLUMN_X; j++) 
+		for (int j = 0; j < BRICK_COLUMN_X; j++)
 		{
 			bricks[i][j].x = auxX;
 			bricks[i][j].y = auxY;
@@ -30,11 +31,17 @@ void BrickDraw()
 	{
 		for (int j = 0; j < BRICK_COLUMN_X; j++)
 		{
-			slRectangleFill(bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+			if (bricks[i][j].active)
+			{
+				slRectangleFill(bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+			}
 		}
 	}
 }
 
 //void BrickUpdate()
 //{
+//
+//
 //}
+

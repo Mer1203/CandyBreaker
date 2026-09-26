@@ -7,6 +7,8 @@ struct Ball
 {
 	double x = 400.0;
 	double y = 120.0;
+	double dirX = 0.0;
+	double dirY = 0.0;
 };
 
 extern Ball ball;

@@ -20,6 +20,3 @@ extern Screen currentScreen;
 void MenuDraw();
 void MenuUpdate(double time);
 
-bool CheckCollisionMouseButton(int buttonX, int buttonY, int buttonHeight, int buttonWidth);
-void ChangeButtonColorOnCollision(int buttonY);
-void ChangeSceneWhenButtonPressed();

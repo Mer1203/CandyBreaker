@@ -2,6 +2,7 @@
 #include "Paddle.h"
 #include "Menu.h"
 #include "sl.h"
+#include <cmath>
 
 Ball ball;
 
@@ -44,3 +45,6 @@ void BallUpdate(int time)
 	}
 
 }
+
+//sin();
+//cos();
