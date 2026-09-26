@@ -32,13 +32,13 @@ void PaddleUpdate(double time)
 
 void CheckPaddleBorders()
 {
-	if (player.x < 0)
+	if (player.x < 0 + PADDLE_WIDTH / 2)
 	{
-		player.x = 0;
+		player.x = 0 + PADDLE_WIDTH / 2;
 	}
 
-	if (player.x > SCREEN_WIDTH)
+	if (player.x > SCREEN_WIDTH - PADDLE_WIDTH / 2)
 	{
-		player.x = SCREEN_WIDTH;
+		player.x = SCREEN_WIDTH - PADDLE_WIDTH / 2;
 	}
 }

@@ -10,3 +10,7 @@ struct Ball
 };
 
 extern Ball ball;
+
+void BallUpdate(int time);
+void BallInit();
+void BallDraw();

@@ -9,6 +9,7 @@ struct Paddle
 	double x = 400.0;
 	int points = 0;
 	int lives = 3;
+	bool isAlive = true;
 };
 
 extern Paddle player;
