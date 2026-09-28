@@ -6,9 +6,9 @@
 
 Ball ball;
 
-void BallDraw()
+void BallDraw(int ballImg)
 {
-	slCircleFill(ball.x, ball.y, BALL_SIZE, BALL_VERTICES);
+	slSprite(ballImg, ball.x, ball.y, BALL_SIZE_IMG, BALL_SIZE_IMG);
 }
 
 void BallInit()

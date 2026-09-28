@@ -25,7 +25,7 @@ void BrickInit()
 	}
 }
 
-void BrickDraw()
+void BrickDraw(int brickImg)
 {
 	for (int i = 0; i < BRICK_ROW_Y; i++)
 	{
@@ -33,7 +33,7 @@ void BrickDraw()
 		{
 			if (bricks[i][j].active)
 			{
-				slRectangleFill(bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+				slSprite(brickImg, bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
 			}
 		}
 	}

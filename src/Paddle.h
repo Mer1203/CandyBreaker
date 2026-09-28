@@ -18,5 +18,5 @@ const int SPEED = 300;
 
 void PaddleInit();
 void PaddleUpdate(double time);
-void PaddleDraw();
+void PaddleDraw(int paddleImg);
 void CheckPaddleBorders();

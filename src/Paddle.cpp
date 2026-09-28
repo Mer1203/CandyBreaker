@@ -4,10 +4,10 @@
 
 Paddle player;
 
-void PaddleDraw()
+void PaddleDraw(int paddleImg)
 {
-	slSetForeColor(1, 0, 0.5, 1);
-	slRectangleFill(player.x, player.y, PADDLE_WIDTH, PADDLE_HEIGHT);
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slSprite(paddleImg, player.x, player.y, PADDLE_WIDTH, PADDLE_HEIGHT);
 }
 
 void PaddleInit()
