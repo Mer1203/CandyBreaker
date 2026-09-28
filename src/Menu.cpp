@@ -11,27 +11,34 @@ using namespace std;
 
 Screen currentScreen = Screen::Menu;
 
-void MenuDraw()
+void MenuDraw(int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
 {
 	switch (currentScreen)
 	{
 	case Screen::None:
 		break;
 	case Screen::Menu:
-		
 		//DIBUJADO BOTONES
-		ButtonMenuDraw();
+		ButtonMenuDraw(playButton, rulesButton, creditsButton, exitButton);
 
+		//FONDO
+		slSprite(backgroundTwo, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+		//TITULO
+		slSprite(tittle, TITTLE_X, TITTLE_Y, TITTLE_WIDTH, TITTLE_HEIGHT);
 		//COLISIONES BOTONES
-		ChangeButtonColorOnCollision(positionButtonPlayY);
-		ChangeButtonColorOnCollision(positionButtonRulesY);
-		ChangeButtonColorOnCollision(positionButtonCreditsY);
-		ChangeButtonColorOnCollision(positionButtonExitY);
+		ChangeButtonColorOnCollision(positionButtonPlayY, playButton);
+		ChangeButtonColorOnCollision(positionButtonRulesY, rulesButton);
+		ChangeButtonColorOnCollision(positionButtonCreditsY, creditsButton);
+		ChangeButtonColorOnCollision(positionButtonExitY, exitButton);
 		break;
 	case Screen::Play:
-		PaddleDraw();
-		BallDraw();
-		BrickDraw();
+		//Fondo:
+		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+		PaddleDraw(paddleImg);
+		BallDraw(ballImg);
+		BrickDraw(brickImg);
 		BackButtonDraw();
 		ChangeBackButtonColorOnCollision();
 		break;
@@ -50,7 +57,7 @@ void MenuDraw()
 	}
 }
 
-void MenuUpdate(double time)
+void MenuUpdate(double time, bool& programIsRunning)
 {
 	switch (currentScreen)
 	{
@@ -59,6 +66,9 @@ void MenuUpdate(double time)
 	case Screen::Menu:
 		ChangeSceneWhenButtonPressed();
 		PaddleInit();
+		BallInit();
+		BrickInit();
+
 		break;
 	case Screen::Play:
 		//Colision Paleta con Pelota
@@ -93,6 +103,7 @@ void MenuUpdate(double time)
 		ChangeSceneWhenBackButtonPressed();
 		break;
 	case Screen::Exit:
+		programIsRunning = false;
 		break;
 	default:
 		break;
