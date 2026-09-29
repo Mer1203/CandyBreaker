@@ -14,7 +14,7 @@ struct Paddle
 
 extern Paddle player;
 
-const int SPEED = 300;
+const int SPEED_PADDLE = 300;
 
 void PaddleInit();
 void PaddleUpdate(double time);

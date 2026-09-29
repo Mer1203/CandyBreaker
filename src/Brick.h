@@ -1,6 +1,6 @@
 #pragma once
 
-const int BRICK_ROW_Y = 9;
+const int BRICK_ROW_Y = 8;
 const int BRICK_COLUMN_X = 8;
 
 const int BRICK_WIDHT = 80;

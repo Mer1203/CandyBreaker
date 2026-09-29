@@ -4,6 +4,8 @@ const int BALL_VERTICES = 100;
 const int BALL_SIZE = 8;
 const int BALL_SIZE_IMG = 20;
 
+const int SPEED_BALL = 200;
+
 struct Ball
 {
 	double x = 400.0;
@@ -14,6 +16,8 @@ struct Ball
 
 extern Ball ball;
 
-void BallUpdate(int time);
+void BallUpdate(double time);
 void BallInit();
 void BallDraw(int ballImg);
+
+void CheckBallCollision();

@@ -22,11 +22,11 @@ void PaddleUpdate(double time)
 {
 	if (slGetKey('D') || slGetKey('d'))
 	{
-		player.x += SPEED * time;
+		player.x += SPEED_PADDLE * time;
 	}
 	else if (slGetKey('A') || slGetKey('a'))
 	{
-		player.x -= SPEED * time;
+		player.x -= SPEED_PADDLE * time;
 	}
 }
 
