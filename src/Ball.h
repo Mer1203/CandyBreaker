@@ -4,7 +4,7 @@ const int BALL_VERTICES = 100;
 const int BALL_SIZE = 8;
 const int BALL_SIZE_IMG = 20;
 
-const int SPEED_BALL = 200;
+const int SPEED_BALL = 500;
 
 struct Ball
 {

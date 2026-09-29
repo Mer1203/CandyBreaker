@@ -10,10 +10,10 @@ const double positionButtonRulesY = 260.0;
 const double positionButtonCreditsY = 180.0;
 const double positionButtonExitY = 100.0;
 
-const double BACK_BUTTON_X = 40;
-const double BACK_BUTTON_Y = 10;
-const double WIDTH_BACK_BUTTON = 80;
-const double HEIGHT_BACK_BUTTON = 20;
+const double BACK_BUTTON_X = 30;
+const double BACK_BUTTON_Y = 30;
+const double WIDTH_BACK_BUTTON = 60;
+const double HEIGHT_BACK_BUTTON = 60;
 
 struct Vector2
 {

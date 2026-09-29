@@ -31,10 +31,11 @@ void MenuUpdate(double time, bool& programIsRunning)
 		//CheckRectangleCollision(player.x, PADDLE_WIDTH, ball.x, BALL_SIZE,
 		//                        player.y, PADDLE_HEIGHT, ball.y, BALL_SIZE);
 
+
 		BallUpdate(time);
 		PaddleUpdate(time);
 		CheckBallCollision();
-
+		CheckBallBorders();
 		CheckPaddleBorders();
 		ChangeSceneWhenBackButtonPressed();
 		break;
@@ -87,10 +88,14 @@ void MenuDraw(int backgroundOne, int backgroundTwo, int tittle, int playButton, 
 		ChangeBackButtonColorOnCollision();
 		break;
 	case Screen::Rules:
+		slSetForeColor(1.0, 1.0, 1.0, 1.0);
+		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 		BackButtonDraw();
 		ChangeBackButtonColorOnCollision();
 		break;
 	case Screen::Credits:
+		slSetForeColor(1.0, 1.0, 1.0, 1.0);
+		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 		BackButtonDraw();
 		ChangeBackButtonColorOnCollision();
 		break;
