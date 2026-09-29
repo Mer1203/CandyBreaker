@@ -21,6 +21,7 @@ int main()
 	int brickImg = slLoadTexture("../res/bricks.png");
 	int ballImg = slLoadTexture("../res/BALL.png");
 	int tittle = slLoadTexture("../res/TITTLE.png");
+	int backButton = slLoadTexture("../res/BACK_BUTTON.png");
 	int backgroundOne = slLoadTexture("../res/BackgroundOne.png");
 	int backgroundTwo = slLoadTexture("../res/BackgroundTwo.png");
 
@@ -31,10 +32,9 @@ int main()
 		deltaTime = slGetDeltaTime();
 		slSetBackColor(1.0, 1.0, 1.0);
 		cout << ball.y << endl;
-		MenuDraw(backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
+		MenuDraw(backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
 		MenuUpdate(deltaTime, programIsRunning);
 
-		slRender();
 	}
 
 	slClose();

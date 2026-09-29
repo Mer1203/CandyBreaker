@@ -53,7 +53,7 @@ void MenuUpdate(double time, bool& programIsRunning)
 	}
 }
 
-void MenuDraw(int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
+void MenuDraw(int backButton, int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
 {
 	switch (currentScreen)
 	{
@@ -84,25 +84,27 @@ void MenuDraw(int backgroundOne, int backgroundTwo, int tittle, int playButton, 
 		PaddleDraw(paddleImg);
 		BallDraw(ballImg);
 		BrickDraw(brickImg);
-		BackButtonDraw();
-		ChangeBackButtonColorOnCollision();
+		BackButtonDraw(backButton);
+		ChangeBackButtonColorOnCollision(backButton);
 		break;
 	case Screen::Rules:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
-		BackButtonDraw();
-		ChangeBackButtonColorOnCollision();
+		BackButtonDraw(backButton);
+		ChangeBackButtonColorOnCollision(backButton);
 		break;
 	case Screen::Credits:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
-		BackButtonDraw();
-		ChangeBackButtonColorOnCollision();
+		BackButtonDraw(backButton);
+		ChangeBackButtonColorOnCollision(backButton);
 		break;
 	case Screen::Exit:
 		break;
 	default:
 		break;
 	}
+
+	slRender();
 }
 

@@ -22,6 +22,6 @@ enum class Screen
 extern Screen currentScreen;
 
 void CheckBallBorders();
-void MenuDraw(int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg);
+void MenuDraw(int backButton, int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg);
 void MenuUpdate(double time, bool& programIsRunning);
 

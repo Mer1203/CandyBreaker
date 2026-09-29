@@ -4,18 +4,18 @@
 
 Vector2 mousePosition;
 
-void BackButtonDraw()
+void BackButtonDraw(int backButton)
 {
-	slSetForeColor(1, 0, 0.5, 1);
-	slRectangleFill(BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slSprite(backButton, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 }
 
-void ChangeBackButtonColorOnCollision()
+void ChangeBackButtonColorOnCollision(int backButton)
 {
 	if (CheckCollisionMouseButton(BACK_BUTTON_X, BACK_BUTTON_Y, HEIGHT_BACK_BUTTON, WIDTH_BACK_BUTTON))
 	{
-		slSetForeColor(1.0, 0.5, 0.0, 1.0);
-		slRectangleFill(BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
+		slSetForeColor(0.9, 0.9, 0.9, 1);
+		slSprite(backButton, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 	}
 }
 

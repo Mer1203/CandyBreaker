@@ -29,6 +29,6 @@ bool CheckCollisionMouseButton(int buttonX, int buttonY, int buttonHeight, int b
 void ChangeButtonColorOnCollision(int buttonY, int img);
 void ChangeSceneWhenButtonPressed();
 
-void BackButtonDraw();
-void ChangeBackButtonColorOnCollision(); 
+void BackButtonDraw(int backButton);
+void ChangeBackButtonColorOnCollision(int backButton);
 void ChangeSceneWhenBackButtonPressed();
