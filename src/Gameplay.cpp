@@ -9,6 +9,7 @@ using namespace std;
 
 void Gameplay()
 {
+	int randomNum = rand() % (2) + 2;
 	double deltaTime = 0.0;
 	bool programIsRunning = true;
 
@@ -19,7 +20,9 @@ void Gameplay()
 	int creditsButton = slLoadTexture("../res/BUTTON_CREDITS.png");
 	int exitButton = slLoadTexture("../res/BUTTON_EXIT.png");
 	int paddleImg = slLoadTexture("../res/PADDLE.png");
-	int brickImg = slLoadTexture("../res/bricks.png");
+	int brickImg = slLoadTexture("../res/BRICK.png");
+	int brickTwoImg = slLoadTexture("../res/brick(amarillo).png");
+	int brickThreeImg = slLoadTexture("../res/brick(rojo).png");
 	int ballImg = slLoadTexture("../res/BALL.png");
 	int tittle = slLoadTexture("../res/TITTLE.png");
 	int backButton = slLoadTexture("../res/BACK_BUTTON.png");
@@ -31,7 +34,7 @@ void Gameplay()
 		deltaTime = slGetDeltaTime();
 		slSetBackColor(1.0, 1.0, 1.0);
 		cout << ball.y << endl;
-		MenuDraw(backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
+		MenuDraw(brickThreeImg, brickTwoImg, backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
 		MenuUpdate(deltaTime, programIsRunning);
 	}
 

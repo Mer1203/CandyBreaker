@@ -112,49 +112,6 @@ void CheckBallCollision()
 
 	inCollision = CheckRectangleCollision(player.x, BRICK_WIDHT, ball.x, BALL_SIZE,
 		                                  player.y, BRICK_HEIGHT, ball.y, BALL_SIZE);
-
-//	if (inCollision)
-//	{
-//		//Correr la pelota del bloque hacia afuera en direccion X:
-//		if (ball.x < player.x)
-//		{
-//			brickLeftX = player.x - BRICK_WIDHT / 2;
-//			ballRightX = ball.x + BALL_SIZE / 2;
-//
-//			diffX = brickLeftX - ballRightX; //Esta cuenta da un valor negativo (-)
-//
-//		}
-//		else if (ball.x > player.x)
-//		{
-//			brickRightX = player.x + BRICK_WIDHT / 2;
-//			ballLeftX = ball.x - BALL_SIZE / 2;
-//
-//			diffX = brickLeftX - ballRightX; //Esta cuenta da un valor positivo (+)
-//		}
-//
-//		//Correr la pelota del bloque hacia afuera en direccion Y:
-//		if (ball.y < player.y)
-//		{
-//			brickLeftY = player.y - BRICK_HEIGHT / 2;
-//			ballRightY = ball.y + BALL_SIZE / 2;
-//
-//			diffY = brickLeftY - ballRightY;
-//		}
-//		else if (ball.y > player.y)
-//		{
-//			brickRightY = player.y + BRICK_HEIGHT / 2;
-//			ballLeftY = ball.y - BALL_SIZE / 2;
-//
-//			diffY = brickLeftY - ballRightY;
-//		}
-//
-//		ball.x += diffX;
-//		ball.y += diffY;
-//
-//		ball.dirY *= -1.0;
-//
-//		break;
-//	}
 }
 
 void CheckBallBorders()
@@ -173,8 +130,9 @@ void CheckBallBorders()
 
 	if (ball.y < 0 + BALL_SIZE / 2)
 	{
-		ball.y = 0 + (BALL_SIZE / 2);
-		ball.dirY *= -1.0;
+		BallInit();
+		PaddleInit();
+		player.lives--;
 	}
 
 	if (ball.y > SCREEN_HEIGHT - BALL_SIZE / 2)
@@ -182,11 +140,6 @@ void CheckBallBorders()
 		ball.y = SCREEN_HEIGHT - BALL_SIZE / 2;
 		ball.dirY *= -1.0;
 	}
-}
-
-void LeftSide()
-{
-
 }
 
 //sin();

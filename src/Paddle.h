@@ -7,6 +7,8 @@ struct Paddle
 {
 	const double y = 100.0;
 	double x = 400.0;
+	double dirX = 0.0;
+	double dirY = 0.0;
 	int points = 0;
 	int lives = 3;
 	bool isAlive = true;
@@ -20,3 +22,4 @@ void PaddleInit();
 void PaddleUpdate(double time);
 void PaddleDraw(int paddleImg);
 void CheckPaddleBorders();
+void CheckPaddleCollision();
