@@ -33,7 +33,6 @@ void Gameplay()
 	{
 		deltaTime = slGetDeltaTime();
 		slSetBackColor(1.0, 1.0, 1.0);
-		cout << ball.y << endl;
 		MenuDraw(brickThreeImg, brickTwoImg, backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
 		MenuUpdate(deltaTime, programIsRunning);
 	}

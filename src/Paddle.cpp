@@ -4,14 +4,17 @@
 #include "Collision.h"
 #include "Ball.h"
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 Paddle player;
 
 void CheckPaddleCollision()
 {
-	const double MIN_ANGLE = 40;
-	const double MAX_ANGLE = 130;
-	
+	const double MIN_ANGLE = 0;
+	const double MAX_ANGLE = 180;
+
 	double ballImpactonPaddle = 0;
 	double normalize = 0;
 
@@ -45,6 +48,8 @@ void CheckPaddleCollision()
 		//Normalizo el numero entre 0 y 1
 		normalize = ballImpactonPaddle / PADDLE_WIDTH;
 
+	
+
 		if (normalize < 0)
 		{
 			normalize = 0;
@@ -57,8 +62,13 @@ void CheckPaddleCollision()
 		//Saco el angulo en donde cayo la pelota con mi numero normalizado
 		ball.angle = MIN_ANGLE + ((MAX_ANGLE - MIN_ANGLE) * (1 - normalize));
 
+		cout << ball.angle << endl;
+
 		//Le agrego el angulo a las direcciones de la pelota con seno y coseno
-		ball.dirY = sin(ball.angle);
+
+		ball.angle *= 3.14 / 180;
+
+		ball.dirY = abs(sin(ball.angle));
 		ball.dirX = cos(ball.angle);
 
 		//Correr la pelota de la paleta hacia afuera en direccion X:
@@ -78,6 +88,7 @@ void CheckPaddleCollision()
 		}
 
 		//Correr la pelota de la paleta hacia afuera en direccion Y:
+		//SACAR
 		if (ball.y < player.y)
 		{
 			paddleLeftY = player.y - PADDLE_HEIGHT / 2;
@@ -93,8 +104,14 @@ void CheckPaddleCollision()
 			diffY = paddleRightY - ballLeftY; //Esta cuenta da un valor positivo (Arriba (+))
 		}
 
-		ball.x += diffX;
-		ball.y += diffY;
+		if (abs(diffX) < abs(diffY))
+		{
+			ball.x += diffX;
+		}
+		else if (abs(diffY) < abs(diffX))
+		{
+			ball.y += diffY;
+		}
 	}
 }
 

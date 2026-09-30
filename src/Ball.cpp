@@ -5,6 +5,9 @@
 #include "Collision.h"
 #include "Brick.h"
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 Ball ball;
 
@@ -23,6 +26,11 @@ void BallInit()
 
 void BallUpdate(double time)
 {
+	cout << ball.dirX << endl;
+	cout << ball.dirY << endl;
+	cout << ball.x << endl;
+	cout << ball.y << endl;
+	cout << ball.angle << endl;
 	ball.x += (SPEED_BALL * ball.dirX) * time;
 	ball.y += (SPEED_BALL * ball.dirY) * time;
 }
@@ -73,7 +81,7 @@ void CheckBallCollision()
 						brickRightX = bricks[i][j].x + BRICK_WIDHT / 2;
 						ballLeftX = ball.x - BALL_SIZE / 2;
 
-						diffX = brickLeftX - ballRightX; //Esta cuenta da un valor positivo (+)
+						diffX = ballLeftX - brickRightX; //Esta cuenta da un valor positivo (+)
 					}
 
 					//Correr la pelota del bloque hacia afuera en direccion Y:
@@ -89,11 +97,17 @@ void CheckBallCollision()
 						brickRightY = bricks[i][j].y + BRICK_HEIGHT / 2;
 						ballLeftY = ball.y - BALL_SIZE / 2;
 
-						diffY = brickLeftY - ballRightY;
+						diffY = ballLeftY - brickRightY;
 					}
 
-					ball.x += diffX;
-					ball.y += diffY;
+					if (diffX < diffY)
+					{
+						ball.x += diffX;
+					}
+					else if (diffY < diffX)
+					{
+						ball.y += diffY;
+					}
 
 					bricks[i][j].active = false;
 
@@ -103,7 +117,7 @@ void CheckBallCollision()
 				}
 			}
 		}
-
+		 
 		if (inCollision)
 		{
 			break;
@@ -141,6 +155,3 @@ void CheckBallBorders()
 		ball.dirY *= -1.0;
 	}
 }
-
-//sin();
-//cos();

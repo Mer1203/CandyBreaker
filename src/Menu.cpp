@@ -22,7 +22,7 @@ void MenuUpdate(double time, bool& programIsRunning)
 		ChangeSceneWhenButtonPressed();
 		PaddleInit();
 		BallInit();
-		BrickInit();
+		//BrickInit();
 
 		break;
 	case Screen::Play:
@@ -84,7 +84,7 @@ void MenuDraw(int brickThreeImg, int brickTwoImg, int backButton, int background
 
 		PaddleDraw(paddleImg);
 		BallDraw(ballImg);
-		BrickDraw(brickThreeImg, brickImg, brickTwoImg);
+		//BrickDraw(brickThreeImg, brickImg, brickTwoImg);
 		BackButtonDraw(backButton);
 		ChangeBackButtonColorOnCollision(backButton);
 		break;
