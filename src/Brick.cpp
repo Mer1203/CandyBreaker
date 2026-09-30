@@ -26,7 +26,7 @@ void BrickInit()
 	}
 }
 
-void BrickDraw(int brickImg)
+void BrickDraw(int brickThreeImg, int brickImg, int brickTwoImg)
 {
 	for (int i = 0; i < BRICK_ROW_Y; i++)
 	{
@@ -34,7 +34,21 @@ void BrickDraw(int brickImg)
 		{
 			if (bricks[i][j].active)
 			{
-				slSprite(brickImg, bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+				if (i % 2 == 0 && j % 2 == 0)
+				{
+					slSetForeColor(1.0, 0.0, 0.5, 1);
+					slSprite(brickImg, bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+				}
+				else if (i % 3 == 0)
+				{
+					slSetForeColor(0.3, 0.9, 1.0, 1);
+					slSprite(brickImg, bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+				}
+				else
+				{
+					slSetForeColor(0.7, 0.0, 1.0, 1);
+					slSprite(brickImg, bricks[i][j].x, bricks[i][j].y, BRICK_WIDHT, BRICK_HEIGHT);
+				}
 			}
 		}
 	}

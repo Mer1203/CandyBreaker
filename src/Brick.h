@@ -15,6 +15,6 @@ struct Brick
 
 extern Brick bricks[BRICK_ROW_Y][BRICK_COLUMN_X];
 
-void BrickDraw(int brickImg);
+void BrickDraw(int brickThreeImg, int brickImg, int brickTwoImg);
 void BrickInit();
 //void BrickUpdate();
