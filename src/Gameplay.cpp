@@ -15,19 +15,19 @@ void Gameplay()
 
 	slWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Candy Breker", false);
 
-	int playButton = slLoadTexture("../res/PLAY_BUTTON.png");
-	int rulesButton = slLoadTexture("../res/BUTTON_RULES.png");
-	int creditsButton = slLoadTexture("../res/BUTTON_CREDITS.png");
-	int exitButton = slLoadTexture("../res/BUTTON_EXIT.png");
-	int paddleImg = slLoadTexture("../res/PADDLE.png");
-	int brickImg = slLoadTexture("../res/BRICK.png");
-	int brickTwoImg = slLoadTexture("../res/brick(amarillo).png");
-	int brickThreeImg = slLoadTexture("../res/brick(rojo).png");
-	int ballImg = slLoadTexture("../res/BALL.png");
-	int tittle = slLoadTexture("../res/TITTLE.png");
-	int backButton = slLoadTexture("../res/BACK_BUTTON.png");
-	int backgroundOne = slLoadTexture("../res/BackgroundOne.png");
-	int backgroundTwo = slLoadTexture("../res/BackgroundTwo.png");
+	int playButton = slLoadTexture("res/PLAY_BUTTON.png");
+	int rulesButton = slLoadTexture("res/BUTTON_RULES.png");
+	int creditsButton = slLoadTexture("res/BUTTON_CREDITS.png");
+	int exitButton = slLoadTexture("res/BUTTON_EXIT.png");
+	int paddleImg = slLoadTexture("res/PADDLE.png");
+	int brickImg = slLoadTexture("res/BRICK.png");
+	int brickTwoImg = slLoadTexture("res/brick(amarillo).png");
+	int brickThreeImg = slLoadTexture("res/brick(rojo).png");
+	int ballImg = slLoadTexture("res/BALL.png");
+	int tittle = slLoadTexture("res/TITTLE.png");
+	int backButton = slLoadTexture("res/BACK_BUTTON.png");
+	int backgroundOne = slLoadTexture("res/BackgroundOne.png");
+	int backgroundTwo = slLoadTexture("res/BackgroundTwo.png");
 
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE) && programIsRunning)
 	{
