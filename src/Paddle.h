@@ -18,6 +18,7 @@ extern Paddle player;
 
 const int SPEED_PADDLE = 300;
 
+void PaddleResetPosition();
 void PaddleInit();
 void PaddleUpdate(double time);
 void PaddleDraw(int paddleImg);

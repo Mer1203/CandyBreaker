@@ -27,6 +27,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Paddle.cpp" />
+    <ClCompile Include="src\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ball.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="src\Gameplay.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Paddle.h" />
+    <ClInclude Include="src\Text.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

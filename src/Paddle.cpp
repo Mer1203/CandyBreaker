@@ -12,8 +12,8 @@ Paddle player;
 
 void CheckPaddleCollision()
 {
-	const double MIN_ANGLE = 0;
-	const double MAX_ANGLE = 180;
+	const double MIN_ANGLE = 40;
+	const double MAX_ANGLE = 130;
 
 	double ballImpactonPaddle = 0;
 	double normalize = 0;
@@ -47,8 +47,6 @@ void CheckPaddleCollision()
 		ballImpactonPaddle = ball.x - (player.x - PADDLE_WIDTH / 2);
 		//Normalizo el numero entre 0 y 1
 		normalize = ballImpactonPaddle / PADDLE_WIDTH;
-
-	
 
 		if (normalize < 0)
 		{
@@ -88,15 +86,7 @@ void CheckPaddleCollision()
 		}
 
 		//Correr la pelota de la paleta hacia afuera en direccion Y:
-		//SACAR
-		if (ball.y < player.y)
-		{
-			paddleLeftY = player.y - PADDLE_HEIGHT / 2;
-			ballRightY = ball.y + BALL_SIZE / 2;
-
-			diffY = paddleLeftY - ballRightY; //Esta cuenta da un valor positivo (Abajo (-))
-		}
-		else if (ball.y > player.y)
+		if (ball.y > player.y)
 		{
 			paddleRightY = player.y + PADDLE_HEIGHT / 2;
 			ballLeftY = ball.y - BALL_SIZE / 2;
@@ -121,12 +111,17 @@ void PaddleDraw(int paddleImg)
 	slSprite(paddleImg, player.x, player.y, PADDLE_WIDTH, PADDLE_HEIGHT);
 }
 
+void PaddleResetPosition()
+{
+	player.x = 400.0;
+}
+
 void PaddleInit()
 {
 	player.x = 400.0;
 
 	player.points = 0;
-	player.points = 3;
+	player.lives = 3;
 }
 
 void PaddleUpdate(double time)

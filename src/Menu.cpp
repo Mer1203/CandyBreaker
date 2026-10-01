@@ -1,16 +1,16 @@
 #include "sl.h"
 #include "Menu.h"
+#include "Text.h"
 #include "Ball.h"
+#include <string>
 #include "Brick.h"
 #include "Paddle.h"
 #include "Button.h"
-#include "Collision.h"
 #include <iostream>
+#include "Collision.h"
 
 using namespace std;
-
 Screen currentScreen = Screen::Menu;
-
 
 void MenuUpdate(double time, bool& programIsRunning)
 {
@@ -22,16 +22,10 @@ void MenuUpdate(double time, bool& programIsRunning)
 		ChangeSceneWhenButtonPressed();
 		PaddleInit();
 		BallInit();
-		//BrickInit();
+		BrickInit();
 
 		break;
 	case Screen::Play:
-		//Colision Paleta con Pelota
-
-		//CheckRectangleCollision(player.x, PADDLE_WIDTH, ball.x, BALL_SIZE,
-		//                        player.y, PADDLE_HEIGHT, ball.y, BALL_SIZE);
-
-
 		BallUpdate(time);
 		PaddleUpdate(time);
 		CheckPaddleCollision();
@@ -54,8 +48,11 @@ void MenuUpdate(double time, bool& programIsRunning)
 	}
 }
 
-void MenuDraw(int brickThreeImg, int brickTwoImg, int backButton, int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
+void MenuDraw(int font, int brickThreeImg, int brickTwoImg, int backButton, int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
 {
+	string textOne = "0";
+	string textTwo = "0";
+
 	switch (currentScreen)
 	{
 	case Screen::None:
@@ -84,9 +81,10 @@ void MenuDraw(int brickThreeImg, int brickTwoImg, int backButton, int background
 
 		PaddleDraw(paddleImg);
 		BallDraw(ballImg);
-		//BrickDraw(brickThreeImg, brickImg, brickTwoImg);
+		BrickDraw(brickThreeImg, brickImg, brickTwoImg);
 		BackButtonDraw(backButton);
 		ChangeBackButtonColorOnCollision(backButton);
+		GameplayText(textOne, textTwo, font);
 		break;
 	case Screen::Rules:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
@@ -97,6 +95,7 @@ void MenuDraw(int brickThreeImg, int brickTwoImg, int backButton, int background
 	case Screen::Credits:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+		CreditsText(font);
 		BackButtonDraw(backButton);
 		ChangeBackButtonColorOnCollision(backButton);
 		break;

@@ -28,12 +28,13 @@ void Gameplay()
 	int backButton = slLoadTexture("res/BACK_BUTTON.png");
 	int backgroundOne = slLoadTexture("res/BackgroundOne.png");
 	int backgroundTwo = slLoadTexture("res/BackgroundTwo.png");
+	int font = slLoadFont("res/MotleyForces.ttf");
 
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE) && programIsRunning)
 	{
 		deltaTime = slGetDeltaTime();
 		slSetBackColor(1.0, 1.0, 1.0);
-		MenuDraw(brickThreeImg, brickTwoImg, backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
+		MenuDraw(font, brickThreeImg, brickTwoImg, backButton, backgroundOne, backgroundTwo, tittle, playButton, rulesButton, creditsButton, exitButton, paddleImg, ballImg, brickImg);
 		MenuUpdate(deltaTime, programIsRunning);
 	}
 
