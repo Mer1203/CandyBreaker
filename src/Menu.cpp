@@ -11,8 +11,9 @@
 
 using namespace std;
 Screen currentScreen = Screen::Menu;
+WinorLose winOrLose = WinorLose::None;
 
-void MenuUpdate(double time, bool& programIsRunning)
+void MenuUpdate(bool& isGamePaused, double time, bool& programIsRunning)
 {
 	switch (currentScreen)
 	{
@@ -23,11 +24,33 @@ void MenuUpdate(double time, bool& programIsRunning)
 		PaddleInit();
 		BallInit();
 		BrickInit();
-
 		break;
 	case Screen::Play:
+
+		if (slGetKey('P') || slGetKey('p'))
+		{
+			isGamePaused = !isGamePaused;
+		}
+
+		if (player.isAlive == false)
+		{
+			winOrLose = WinorLose::Lose;
+		}
+		else if (player.won == true)
+		{
+			winOrLose = WinorLose::Win;
+			
+		}
+
+		if (isGamePaused == true || player.won == true || player.isAlive == false)
+		{
+			return;
+		}
+
 		BallUpdate(time);
 		PaddleUpdate(time);
+		PlayerLose();
+		PlayerWin();
 		CheckPaddleCollision();
 		CheckBallCollision();
 		CheckBallBorders();
@@ -48,7 +71,9 @@ void MenuUpdate(double time, bool& programIsRunning)
 	}
 }
 
-void MenuDraw(int font, int brickThreeImg, int brickTwoImg, int backButton, int backgroundOne, int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton, int exitButton, int paddleImg, int ballImg, int brickImg)
+void MenuDraw(int backButtonGame,  int font, int brickThreeImg, int brickTwoImg, int backButton, int backgroundOne,
+              int backgroundTwo, int tittle, int playButton, int rulesButton, int creditsButton,
+	          int exitButton, int paddleImg, int ballImg, int brickImg)
 {
 	string textOne = "0";
 	string textTwo = "0";
@@ -65,39 +90,61 @@ void MenuDraw(int font, int brickThreeImg, int brickTwoImg, int backButton, int 
 		//DIBUJADO BOTONES
 		ButtonMenuDraw(playButton, rulesButton, creditsButton, exitButton);
 		//COLISIONES BOTONES
-		ChangeButtonColorOnCollision(positionButtonPlayY, playButton);
+		ChangeButtonColorOnCollision(playButton, POSITION_BUTTON_X, positionButtonPlayY, WIDTH_BUTTON, HEIGHT_BUTTON);
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
-		ChangeButtonColorOnCollision(positionButtonRulesY, rulesButton);
+		ChangeButtonColorOnCollision(rulesButton, POSITION_BUTTON_X, positionButtonRulesY, WIDTH_BUTTON, HEIGHT_BUTTON);
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
-		ChangeButtonColorOnCollision(positionButtonCreditsY, creditsButton);
+		ChangeButtonColorOnCollision(creditsButton, POSITION_BUTTON_X, positionButtonCreditsY, WIDTH_BUTTON, HEIGHT_BUTTON);
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
-		ChangeButtonColorOnCollision(positionButtonExitY, exitButton);
+		ChangeButtonColorOnCollision(exitButton, POSITION_BUTTON_X, positionButtonExitY, WIDTH_BUTTON, HEIGHT_BUTTON);
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
+
 		break;
 	case Screen::Play:
 		//Fondo:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
-
 		PaddleDraw(paddleImg);
 		BallDraw(ballImg);
 		BrickDraw(brickThreeImg, brickImg, brickTwoImg);
 		BackButtonDraw(backButton);
-		ChangeBackButtonColorOnCollision(backButton);
+		ChangeButtonColorOnCollision(BACK_BUTTON_Y, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 		GameplayText(textOne, textTwo, font);
+
+		switch (winOrLose)
+		{
+		case WinorLose::None:
+			break;
+		case WinorLose::Win:
+			if (player.won == true)
+			{
+				Win(font, backButtonGame);
+			}
+
+			break;
+		case WinorLose::Lose:
+			if (player.isAlive == false)
+			{
+				Lose(font, backButtonGame);
+			}
+			break;
+		default:
+			break;
+		}
+
 		break;
 	case Screen::Rules:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 		BackButtonDraw(backButton);
-		ChangeBackButtonColorOnCollision(backButton);
+		ChangeButtonColorOnCollision(BACK_BUTTON_Y, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 		break;
 	case Screen::Credits:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 		CreditsText(font);
 		BackButtonDraw(backButton);
-		ChangeBackButtonColorOnCollision(backButton);
+		ChangeButtonColorOnCollision(BACK_BUTTON_Y, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 		break;
 	case Screen::Exit:
 		break;
@@ -108,3 +155,20 @@ void MenuDraw(int font, int brickThreeImg, int brickTwoImg, int backButton, int 
 	slRender();
 }
 
+void WinorLoseGame(bool& isGamePaused)
+{
+	if (slGetKey('P') || slGetKey('p'))
+	{
+		isGamePaused = !isGamePaused;
+	}
+
+	if (player.isAlive == false || player.won == true)
+	{
+		currentScreen = Screen::Menu;
+	}
+
+	if (isGamePaused == true || player.won == true || player.isAlive == false)
+	{
+		return;
+	}
+}

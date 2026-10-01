@@ -4,8 +4,6 @@
 #include "sl.h"
 
 Vector2 mousePosition;
-Buttons rulesB;
-Buttons backB;
 
 void BackButtonDraw(int backButton)
 {
@@ -24,13 +22,6 @@ void ChangeSceneWhenBackButtonPressed()
 			CheckCollisionMouseButton(POSITION_BUTTON_X, positionButtonBackY, HEIGHT_BUTTON, WIDTH_BUTTON))
 		{
 			currentScreen = Screen::Menu;
-
-			if (!backB.isPressed && backB.wasPressed)
-			{
-				currentScreen = Screen::Menu;
-				backB.isPressed = false;
-			}
-
 		}
 	}
 }
@@ -67,13 +58,6 @@ void ChangeSceneWhenButtonPressed()
 		else if (CheckCollisionMouseButton(POSITION_BUTTON_X, positionButtonRulesY, HEIGHT_BUTTON, WIDTH_BUTTON))
 		{
 			currentScreen = Screen::Rules;
-
-			if (!rulesB.isPressed && rulesB.wasPressed)
-			{
-				currentScreen = Screen::Rules;
-				rulesB.isPressed = false;
-			}
-
 		}
 		else if (CheckCollisionMouseButton(POSITION_BUTTON_X, positionButtonCreditsY, HEIGHT_BUTTON, WIDTH_BUTTON))
 		{
@@ -100,7 +84,7 @@ bool Lose(int font, int backButtonGame)
 {
 	LoseText(font);
 	slSetForeColor(1.0, 1.0, 1.0, 1.0);
-	slSprite(backButtonGame, POSITION_BUTTON_X, positionButtonRulesY, WIDTH_BUTTON, HEIGHT_BUTTON);
+	slSprite(backButtonGame, POSITION_BUTTON_X, positionButtonBackY, WIDTH_BUTTON, HEIGHT_BUTTON);
 	ChangeButtonColorOnCollision(backButtonGame, POSITION_BUTTON_X, positionButtonBackY, WIDTH_BUTTON, HEIGHT_BUTTON);
 	ChangeSceneWhenBackButtonPressed();
 
@@ -111,7 +95,7 @@ bool Win(int font, int backButtonGame)
 {
 	WinText(font);
 	slSetForeColor(1.0, 1.0, 1.0, 1.0);
-	slSprite(backButtonGame, POSITION_BUTTON_X, positionButtonRulesY, WIDTH_BUTTON, HEIGHT_BUTTON);
+	slSprite(backButtonGame, POSITION_BUTTON_X, positionButtonBackY, WIDTH_BUTTON, HEIGHT_BUTTON);
 	ChangeButtonColorOnCollision(backButtonGame, POSITION_BUTTON_X, positionButtonBackY, WIDTH_BUTTON, HEIGHT_BUTTON);
 	ChangeSceneWhenBackButtonPressed();
 
