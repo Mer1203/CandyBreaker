@@ -45,6 +45,7 @@
     <ProjectGuid>{2201e98b-ac2d-47cf-bf2f-0c4ad652cfb1}</ProjectGuid>
     <RootNamespace>CandyBraker</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CandyBreaker</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -24,7 +24,7 @@ void WinText(int font)
 {
 	slSetFont(font, FONT_SIZE + FONT_SIZE);
 	slSetForeColor(1.0, 1.0, 1.0, 1);
-	slText(290, CONDITION_TEXT_Y, "YOU WIN!");
+	slText(280, CONDITION_TEXT_Y, "YOU WIN!");
 }
 
 void RulesText(int font)
