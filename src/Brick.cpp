@@ -19,10 +19,10 @@ void BrickInit()
 			bricks[i][j].y = auxY;
 			bricks[i][j].active = true;
 
-			auxX += BRICK_WIDHT + 2;
+			auxX += BRICK_WIDHT;
 		}
 
-		auxY -= (BRICK_HEIGHT + 2);
+		auxY -= (BRICK_HEIGHT);
 	}
 }
 
