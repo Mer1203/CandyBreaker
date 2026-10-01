@@ -24,11 +24,38 @@ void WinText(int font)
 {
 	slSetFont(font, FONT_SIZE + FONT_SIZE);
 	slSetForeColor(1.0, 1.0, 1.0, 1);
-	slText(220, CONDITION_TEXT_Y, "YOU WIN!");
+	slText(290, CONDITION_TEXT_Y, "YOU WIN!");
 }
 
 void RulesText(int font)
 {
+	slSetFont(font, FONT_SIZE);
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slText(20, 495, "With the Jaw-Breaker, you must break the blocks to");
+	slText(20, 460, "reach the maximum score to win. If the Jaw-Breaker");
+	slText(20, 425, "reachs the bottom, you lose a life. If you don´t have");
+	slText(20, 390, "lives left, you lose!");
+	slText(20, 350, "To avoid losing lives, you must control the ball using\n the candy bar.");
+	slText(20, 270, "Keep in mind that the Jaw-Breaker shoots out as soon\n as the game starts and when it reappears.");
+
+	slSetForeColor(0.7, 0.0, 1.0, 1);
+	slText(20, 160, "KEYS:");
+
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slText(20, 130, " -");
+	slSetForeColor(0.3, 0.9, 1.0, 1); 
+	slText(28, 130, "  A " );
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slText(58, 130, " -> Move candy to the left.");
+
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slText(20, 100, " -");
+	slSetForeColor(0.3, 0.9, 1.0, 1); 
+	slText(28, 100, "  D " );
+	slSetForeColor(1.0, 1.0, 1.0, 1);
+	slText(58, 100, " -> Move candy to the right.");
+
+
 
 }
 
@@ -72,10 +99,5 @@ void CreditsText(int font)
 	slSetForeColor(0.3, 0.9, 1.0, 1);
 	slText(180, 80, "Gabriela Omann - Candy World - Background Two:");
 	slSetForeColor(1.0, 1.0, 1.0, 1);
-	slText(170, 60, "https://ar.pinterest.com/pin/803470389795722270/"); 
-
-	//slSetForeColor(1.0, 0.0, 0.5, 1);
-	//slText(350, 100, "MADE IN"); 
-	//slSetForeColor(1.0, 1.0, 1.0, 1);
-	//slText(270, 70, "C++ and Sigil Library"); 
+	slText(170, 60, "https://ar.pinterest.com/pin/803470389795722270/");
 }

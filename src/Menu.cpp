@@ -39,7 +39,6 @@ void MenuUpdate(bool& isGamePaused, double time, bool& programIsRunning)
 		else if (player.won == true)
 		{
 			winOrLose = WinorLose::Win;
-			
 		}
 
 		if (isGamePaused == true || player.won == true || player.isAlive == false)
@@ -136,6 +135,7 @@ void MenuDraw(int backButtonGame,  int font, int brickThreeImg, int brickTwoImg,
 	case Screen::Rules:
 		slSetForeColor(1.0, 1.0, 1.0, 1.0);
 		slSprite(backgroundOne, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+		RulesText(font);
 		BackButtonDraw(backButton);
 		ChangeButtonColorOnCollision(BACK_BUTTON_Y, BACK_BUTTON_X, BACK_BUTTON_Y, WIDTH_BACK_BUTTON, HEIGHT_BACK_BUTTON);
 		break;
