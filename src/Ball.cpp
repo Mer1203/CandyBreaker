@@ -118,9 +118,6 @@ void CheckBallCollision()
 
 					bricks[i][j].active = false;
 
-		/*			ball.dirY *= -1.0;
-					ball.dirX *= -1.0;*/
-
 					break;
 				}
 			}

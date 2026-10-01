@@ -12,12 +12,15 @@ struct Paddle
 	int points = 0;
 	int lives = 3;
 	bool isAlive = true;
+	bool won = false;
 };
 
 extern Paddle player;
 
 const int SPEED_PADDLE = 300;
 
+void PlayerLose();
+void PlayerWin();
 void PaddleResetPosition();
 void PaddleInit();
 void PaddleUpdate(double time);

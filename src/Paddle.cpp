@@ -119,9 +119,26 @@ void PaddleResetPosition()
 void PaddleInit()
 {
 	player.x = 400.0;
-
+	player.isAlive = true;
+	player.won = false;
 	player.points = 0;
 	player.lives = 3;
+}
+
+void PlayerLose()
+{
+	if (player.lives == 0)
+	{
+		player.isAlive = false;
+	}
+}
+
+void PlayerWin()
+{
+	if (player.points == 6400)
+	{
+		player.won = true;
+	}
 }
 
 void PaddleUpdate(double time)
